@@ -27,7 +27,7 @@
         <h2> Cadastrar Exame </h2>
 
         <?php 
-            echo form_open("exames/new");
+            echo form_open("exames/novo");
 
             echo form_hidden("id_paciente", $pacientes["id"]);
 

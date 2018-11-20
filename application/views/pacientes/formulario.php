@@ -15,7 +15,7 @@
         <?= validation_errors("<p class='alert alert-danger'>", "</p>")?>
 
         <?php 
-            echo form_open("pacientes/new");
+            echo form_open("pacientes/novo");
 
             echo form_label("Nome", "nome");
             echo form_input(array(

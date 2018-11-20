@@ -1,7 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class Exames extends CI_Controller {
 
-    public function new(){
+    public function novo(){
 
         $usuarioLogado = $this->session->userdata("usuario_logado");
         $idPaciente = $this->input->post("id_paciente");

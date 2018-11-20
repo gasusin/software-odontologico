@@ -75,7 +75,7 @@
 
             <h1>Cadastro de Usuário</h1>
             <?php 
-                echo form_open("usuarios/new");
+                echo form_open("usuarios/novo");
 
                 echo form_label("Nome", "nome");
                 echo form_input(array(

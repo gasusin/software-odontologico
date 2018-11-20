@@ -15,7 +15,7 @@ class Pacientes extends CI_Controller {
         $this->load->view("pacientes/formulario");
     }
 
-    public function new(){
+    public function novo(){
 
         $this->load->library("form_validation");
         $this->form_validation->set_rules("nome", "nome", "required");
