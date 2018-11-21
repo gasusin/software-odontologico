@@ -58,6 +58,7 @@ class Pacientes extends CI_Controller {
     public function edit($id){
         
         $this->load->model("pacientes_model");
+        // $this->load->library('upload');
 
         $paciente = $this->pacientes_model->getById($id);
 
