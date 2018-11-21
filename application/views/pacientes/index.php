@@ -33,6 +33,7 @@
                         <td><?= character_limiter($paciente["plano_saude"], 15)?></td>
                         <td>
                             <?= anchor("pacientes/{$paciente['id']}", " ", array("class" => "fa fa-search")) ?>
+                            <?= anchor("pacientes/edit/{$paciente['id']}", " ", array("class" => "fa fa-edit")) ?>
                         </td>
                     </tr>
                 <?php endforeach?>

@@ -55,4 +55,15 @@ class Pacientes extends CI_Controller {
 
     }
 
+    public function edit($id){
+        
+        $this->load->model("pacientes_model");
+
+        $paciente = $this->pacientes_model->getById($id);
+
+        $dados = array("pacientes" => $paciente);
+
+        $this->load->view("pacientes/edit", $dados);
+    }
+
 }

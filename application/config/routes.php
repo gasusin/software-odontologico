@@ -41,6 +41,7 @@
 $route['default_controller'] = "pacientes";
 $route['404_override'] = '';
 $route['pacientes/(:num)'] = 'pacientes/detalhes/$1';
+$route['pacientes/edit/(:num)'] = 'pacientes/edit/$1';
 
 
 /* End of file routes.php */
