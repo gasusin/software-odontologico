@@ -30,6 +30,106 @@
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_cadastro_exame">
           Cadastrar Exame
         </button>
+        <?= anchor('pacientes', 'Voltar', array("class" => "btn btn-primary")) ?>
+
+
+        <!-- Tabela de exames -->
+        <div class="container">
+
+            <?php if($this->session->flashdata("danger")) : ?>
+                <p class="alert alert-danger">
+                    <?= $this->session->flashdata("danger"); ?>
+                </p>
+            <?php endif ?>
+            
+            <?php if($this->session->userdata("usuario_logado")) : ?>
+
+                <h1>Exames</h1>
+
+                <table class="table table-striped">
+                    <tr>
+                        <th>#</th>
+                        <th>Descrição</th> 
+                        <th>Tipo</th>
+                        <th>Data Exame</th>
+                    </tr>
+                    <?php foreach($exames as $exame) :?>
+
+                        <tr>    
+                            <td><?= $exame["id"]?></td>
+                            <td><?= $exame["descricao"]?></td>
+                            <td><?= $exame["tipo"]?></td>
+                            <td><?= $exame["data_exame"]?></td>
+                            
+                        </tr>
+                    <?php endforeach?>
+                </table>
+
+
+            <?php else : ?>
+
+                <h1>Login</h1>
+                <?php
+                
+                    echo form_open("login/autenticar");
+
+                    echo form_label("Nome", "nome");
+                    echo form_input(array(
+                        "id" => "nome",
+                        "name" => "nome",
+                        "class" => "form-control",
+                        "maxlength" => "255"
+                    ));
+
+                    echo form_label("Senha", "senha");
+                    echo form_password(array(
+                        "id" => "senha",
+                        "name" => "senha",
+                        "class" => "form-control",
+                        "maxlength" => "255"
+                    ));
+
+                    echo form_button(array(
+                        "class" => "btn btn-primary",
+                        "content" => "Login",
+                        "type" => "submit"
+                    ));
+
+                    echo form_close();
+                ?>
+
+                <h1>Cadastro de Usuário</h1>
+                <?php 
+                    echo form_open("usuarios/novo");
+
+                    echo form_label("Nome", "nome");
+                    echo form_input(array(
+                        "id" => "nome",
+                        "name" => "nome",
+                        "class" => "form-control",
+                        "maxlength" => "255"
+                    ));
+
+                    echo form_label("Senha", "senha");
+                    echo form_password(array(
+                        "id" => "senha",
+                        "name" => "senha",
+                        "class" => "form-control",
+                        "maxlength" => "255"
+                    ));
+
+                    echo form_button(array(
+                        "class" => "btn btn-primary",
+                        "content" => "Salvar",
+                        "type" => "submit"
+                    ));
+
+                    echo form_close();
+                ?>'
+
+            <?php endif ?>
+        </div>
+        <!-- Tabela de exames -->
 
         <!-- Modal -->
         <div class="modal fade" id="modal_cadastro_exame" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
