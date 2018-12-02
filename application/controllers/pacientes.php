@@ -50,6 +50,7 @@ class Pacientes extends CI_Controller {
 
         $paciente = $this->pacientes_model->getById($id);
         $exames = $this->exames_model->getByIdPaciente($paciente["id"]);
+        //$exames   = $this->pacientes_model->getExames($id);
 
         $dados = array("pacientes" => $paciente, "exames" => $exames);
         $this->load->helper("typography");
@@ -60,6 +61,7 @@ class Pacientes extends CI_Controller {
     public function edit($id){
         
         $this->load->model("pacientes_model");
+        // $this->load->library('upload');
 
         $paciente = $this->pacientes_model->getById($id);
 

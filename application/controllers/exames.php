@@ -12,7 +12,7 @@ class Exames extends CI_Controller {
         $exames = array(
             "descricao" => $this->input->post("descricao"),
             "data_exame" => convertDataForDB($this->input->post("data_exame")),
-            "id_usuario_criacao" => $usuarioLogado["id"],
+            "id_usuario_cadastro" => $usuarioLogado["id"],
             "id_paciente" => $idPaciente
         );
 

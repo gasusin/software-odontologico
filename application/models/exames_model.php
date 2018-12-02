@@ -6,7 +6,7 @@ class Exames_model extends CI_Model {
     }
 
     public function getByIdPaciente($id){
-        $this->db->where("id", $id);
+        $this->db->where("id_paciente", $id);
         return $this->db->get("exame")->row_array(); 
     }
 
