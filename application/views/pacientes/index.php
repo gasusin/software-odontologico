@@ -101,7 +101,7 @@
                 ));
 
                 echo form_close();
-            ?>'
+            ?>
 
         <?php endif ?>
     </div>

@@ -125,7 +125,7 @@
                     ));
 
                     echo form_close();
-                ?>'
+                ?>
 
             <?php endif ?>
         </div>
@@ -145,7 +145,7 @@
               <div class="modal-body">
                 
                 <?php 
-                    echo form_open("exames/novo");
+                    echo form_open_multipart("exames/novo");
 
                     echo form_hidden("id_paciente", $pacientes["id"]);
 
@@ -172,7 +172,7 @@
                     );
                     
                     echo form_label("Imagem do Exame", "imagem_exame");
-                    echo "<input type='file' name='userfile' size='20' required/>";
+                    echo "<input type='file' name='arquivo_exame' required/>";
 
                 ?>
               </div>
@@ -198,9 +198,6 @@
             </div>
           </div>
         </div>
-
-
-        
     </div>
 </body>
 </html>

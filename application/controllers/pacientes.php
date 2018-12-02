@@ -49,8 +49,8 @@ class Pacientes extends CI_Controller {
         $this->load->model("exames_model");
 
         $paciente = $this->pacientes_model->getById($id);
-        $exames = $this->exames_model->getByIdPaciente($paciente["id"]);
-        //$exames   = $this->pacientes_model->getExames($id);
+        //$exames = $this->exames_model->getByIdPaciente($paciente["id"]);
+        $exames   = $this->pacientes_model->getExames($id);
 
         $dados = array("pacientes" => $paciente, "exames" => $exames);
         $this->load->helper("typography");
@@ -68,6 +68,30 @@ class Pacientes extends CI_Controller {
         $dados = array("pacientes" => $paciente);
 
         $this->load->view("pacientes/edit", $dados);
+
+    }
+
+    public function update(){
+        
+        $usuarioLogado = $this->session->userdata("usuario_logado");
+        
+        $paciente = array(
+            "id" => $this->input->post("id"),
+            "nome" => $this->input->post("nome"),
+            "cpf" => $this->input->post("cpf"),
+            "plano_saude" => $this->input->post("plano_saude"),
+            "ind_paciente" => 1
+        );
+        
+        $this->load->model("pacientes_model");
+        $this->pacientes_model->update($paciente);
+        
+        $pacientes = $this->pacientes_model->getAll();
+
+        $dados = array("pacientes" => $pacientes);
+
+        //$this->load->view('produtos/tabela', $dados);
+        $this->load->view("pacientes/index.php", $dados);
     }
 
 }

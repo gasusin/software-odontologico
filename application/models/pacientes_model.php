@@ -15,6 +15,19 @@ class Pacientes_model extends CI_Model {
         return $this->db->get("pessoa")->row_array(); 
     }
 
+    public function update($paciente) {
+        $this->db->update(
+            "pessoa", 
+            array(
+                "nome" => $paciente["nome"],
+                "cpf" => $paciente["cpf"],
+                "plano_saude" => $paciente["plano_saude"],
+                "ind_paciente" => $paciente["ind_paciente"]
+            ), 
+            array("id" => $paciente["id"]) // Where
+        );
+    }
+
     public function getExames($id){
         $found = null;
 

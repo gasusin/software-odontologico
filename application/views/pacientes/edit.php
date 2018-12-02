@@ -17,6 +17,8 @@
         <?php 
             echo form_open("pacientes/update");
 
+            echo form_hidden("id", $pacientes["id"]);
+
             echo form_label("Nome", "nome");
             echo form_input(array(
                 "id" => "nome",
