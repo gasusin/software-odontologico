@@ -21,39 +21,29 @@
         <div class="row">
             <label>Plano de Saúde: <?= $pacientes["plano_saude"]?></label>
         </div>
+    </div>
     
-        <!-- Cadastrar Imagem -->
-
-        <h2> Cadastrar Exame </h2>
-
-        <?php 
-            echo form_open("exames/novo");
-
-            echo form_hidden("id_paciente", $pacientes["id"]);
-
-            echo form_label("Descrição", "descricao");
-            echo form_input(array(
-                "id" => "descricao",
-                "name" => "descricao",
-                "class" => "form-control",
-                "maxlength" => "255"
-            ));
-
-            echo form_label("Data do Exame", "data_exame");
-            echo form_input(array(
-                "id" => "data_exame",
-                "name" => "data_exame",
-                "class" => "form-control"
-            ));
-
-            echo form_button(array(
-                "class" => "btn btn-primary",
-                "content" => "Salvar",
-                "type" => "submit"
-            ));
-
-            echo form_close();
-        ?> 
+    <div class="container">
+        <!-- Consulta de Exames -->
+        <h3>Exames</h3>
+        <table class="table table-striped">
+            <tr>
+                <th>#</th>
+                <th>Descrição</th>
+                <th>Data</th>
+                <th>Ações</th>
+            </tr>
+            <?php foreach($exames as $exame) :?>
+                <tr>    
+                    <td><?= $exame["id"]?></td>
+                    <td><?= $exame["descricao"]?></td>
+                    <td><?= $exame["data_exame"]?></td>
+                    <td>
+                        <?= anchor("", " ", array("class" => "fa fa-delete")) ?>
+                    </td>
+                </tr>
+            <?php endforeach?>
+        </table>
     </div>
 </body>
 </html>

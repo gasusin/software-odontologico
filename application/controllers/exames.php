@@ -20,4 +20,11 @@ class Exames extends CI_Controller {
 
         redirect(`pacientes/detalhes?id=${$idPaciente}`);
     }
+
+    public function delete($idExame, $idPaciente){
+        $this->load->model("exames_model");
+        $this->exames_model->deleteById($idExame);
+
+        
+    }
 }

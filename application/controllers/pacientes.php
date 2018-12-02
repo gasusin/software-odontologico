@@ -46,10 +46,12 @@ class Pacientes extends CI_Controller {
     public function detalhes($id){
 
         $this->load->model("pacientes_model");
+        $this->load->model("exames_model");
 
         $paciente = $this->pacientes_model->getById($id);
+        $exames = $this->exames_model->getByIdPaciente($paciente["id"]);
 
-        $dados = array("pacientes" => $paciente);
+        $dados = array("pacientes" => $paciente, "exames" => $exames);
         $this->load->helper("typography");
         $this->load->view("pacientes/detalhes", $dados);
 
