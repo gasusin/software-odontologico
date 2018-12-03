@@ -53,6 +53,8 @@
                 "type" => "submit"
             ));
 
+            echo anchor('pacientes', '<i class="fa fa-arrow-left"></i> Voltar', array("class" => "btn btn-primary"));
+
             echo form_close();
         ?>    
     </div>

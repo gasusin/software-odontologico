@@ -16,7 +16,10 @@
         <?php if($this->session->userdata("usuario_logado")) : ?>
 
             <h1>Pacientes</h1>
-
+            
+            <?= anchor('pacientes/formulario', '<i class="fa fa-user"></i> Cadastrar paciente', array("class" => "btn btn-primary")) ?>
+            <?= anchor('login/logout', '<i class="fa fa-sign-out"></i> Logout', array("class" => "btn btn-primary")) ?>
+            
             <table class="table table-striped">
                 <tr>
                     <th>#</th>
@@ -39,8 +42,6 @@
                 <?php endforeach?>
             </table>
 
-            <?= anchor('pacientes/formulario', 'Cadastro Paciente', array("class" => "btn btn-primary")) ?>
-            <?= anchor('login/logout', 'Logout', array("class" => "btn btn-primary")) ?>
 
         <?php else : ?>
 

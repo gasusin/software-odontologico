@@ -28,9 +28,9 @@
         
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_cadastro_exame">
-          Cadastrar Exame
+            <i class="fa fa-list-alt"></i> Cadastrar Exame
         </button>
-        <?= anchor('pacientes', 'Voltar', array("class" => "btn btn-primary")) ?>
+        <?= anchor('pacientes', '<i class="fa fa-arrow-left"></i> Voltar', array("class" => "btn btn-primary")) ?>
 
 
         <!-- Tabela de exames -->
@@ -52,6 +52,7 @@
                         <th>Descrição</th> 
                         <th>Tipo</th>
                         <th>Data Exame</th>
+                        <th>Ações</th>
                     </tr>
                     <?php foreach($exames as $exame) :?>
 
@@ -60,7 +61,10 @@
                             <td><?= $exame["descricao"]?></td>
                             <td><?= $exame["tipo"]?></td>
                             <td><?= $exame["data_exame"]?></td>
-                            
+                            <td>
+                                <?= anchor("exames/{$pacientes['id']}/{$exame["id"]}", " ", array("class" => "fa fa-search")) ?>
+                                <?= anchor("exames/edit/{$pacientes['id']}/{$exame['id']}", " ", array("class" => "fa fa-edit")) ?>
+                            </td>
                         </tr>
                     <?php endforeach?>
                 </table>
@@ -131,7 +135,7 @@
         </div>
         <!-- Tabela de exames -->
 
-        <!-- Modal -->
+        <!-- Modal cadastro exame -->
         <div class="modal fade" id="modal_cadastro_exame" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -154,14 +158,16 @@
                         "id" => "descricao",
                         "name" => "descricao",
                         "class" => "form-control",
-                        "maxlength" => "255"
+                        "maxlength" => "255",
+                        "required" => "required"
                     ));
 
                     echo form_label("Data do Exame", "data_exame");
                     echo form_input(array(
                         "id" => "data_exame",
                         "name" => "data_exame",
-                        "class" => "form-control"
+                        "class" => "form-control",
+                        "required" => "required"
                     ));
 
                     echo form_label("Tipo do Exame", "tipo_exame");
@@ -198,6 +204,8 @@
             </div>
           </div>
         </div>
+        <!-- Modal cadastro exame -->
+
     </div>
 </body>
 </html>
