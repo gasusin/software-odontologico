@@ -1,8 +1,8 @@
 <html lang="en">
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" href="<?= base_url("css/bootstrap.css") ?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
     <div class="container">
@@ -23,7 +23,7 @@
             <table class="table table-striped">
                 <tr>
                     <th>#</th>
-                    <th>Nome</th> 
+                    <th>Nome</th>
                     <th>CPF</th>
                     <th>Plano de Saúde</th>
                     <th>Ações</th>

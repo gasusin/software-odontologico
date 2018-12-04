@@ -6,6 +6,9 @@
     <title>Edição de Pacientes</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="<?= base_url("css/bootstrap.css") ?>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="<?= base_url('js/jquery.min.js'); ?>"></script>
+    <script src="<?= base_url("js/jquery.maskedinput.min.js");?>"></script><!-- Máscara -->
 </head>
 <body>
     <div class="container">
@@ -47,16 +50,23 @@
                 "value" => set_value("plano_saude", $pacientes["plano_saude"])
             ));
 
+            echo anchor('pacientes', '<i class="fa fa-times"></i> Cancelar', array("class" => "btn btn-primary"));
+
             echo form_button(array(
                 "class" => "btn btn-primary",
-                "content" => "Salvar",
+                "content" => "<i class='fa fa-check'></i> Salvar",
                 "type" => "submit"
             ));
 
-            echo anchor('pacientes', '<i class="fa fa-arrow-left"></i> Voltar', array("class" => "btn btn-primary"));
 
             echo form_close();
         ?>    
     </div>
+
+     <script type="text/javascript">
+        $(document).ready(function(){
+          $('#cpf').mask('999.999.999-99');
+        });
+    </script>
 </body>
 </html>

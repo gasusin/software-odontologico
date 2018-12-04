@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" /> 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Detalhe Exame</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,6 +10,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="<?= base_url('js/jquery.min.js'); ?>"></script>
     <script src="<?= base_url('js/bootstrap.js'); ?>"></script>
+
+    <style type="text/css">
+        
+        img {
+            max-width: 600px;
+            min-height: 400px;
+            max-height: 400px;
+        }
+    </style>
 </head>
 <body>
 
@@ -28,7 +37,8 @@
         </div>
         
         <?= anchor('pacientes/detalhes/'.$id_paciente, '<i class="fa fa-arrow-left"></i> Voltar', array("class" => "btn btn-primary")) ?>
-
+        <?= anchor('exames/download/'.$nome_paciente.'/'.$exame['nome_arquivo'], '<i class="fa fa-download"></i> Baixar imagem', array("class" => "btn btn-primary")) ?>
+        <!-- <?php //anchor("exames/delete/{$pacientes['id']}/{$exame['id']}", " ", array("class" => "fa fa-times")) ?> -->
 
         <!-- Tabela de exames -->
         <div class="container">
@@ -42,7 +52,7 @@
             <?php if($this->session->userdata("usuario_logado")) : ?>
 
                 <div class="row text-center">
-                    <img class="img-fluid img-thumbnail" src="<?php echo base_url('assets\\uploads\\'.$exame['nome_arquivo']); ?>" width="300px" height="300px">
+                    <img class="img-fluid img-thumbnail" src="<?php echo base_url('assets\\uploads\\'.$exame['nome_arquivo']); ?>" >
                 </div>
 
 

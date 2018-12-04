@@ -62,7 +62,7 @@
                             <td><?= $exame["tipo"]?></td>
                             <td><?= $exame["data_exame"]?></td>
                             <td>
-                                <?= anchor("exames/{$pacientes['id']}/{$exame["id"]}", " ", array("class" => "fa fa-search")) ?>
+                                <?= anchor("exames/{$pacientes['id']}/{$pacientes['nome']}/{$exame["id"]}", " ", array("class" => "fa fa-search")) ?>
                                 <?= anchor("exames/edit/{$pacientes['id']}/{$exame['id']}", " ", array("class" => "fa fa-edit")) ?>
                                 <?= anchor("exames/delete/{$pacientes['id']}/{$exame['id']}", " ", array("class" => "fa fa-times")) ?>
                             </td>
@@ -168,6 +168,7 @@
                         "id" => "data_exame",
                         "name" => "data_exame",
                         "class" => "form-control",
+                        "type" => "date",
                         "required" => "required"
                     ));
 
@@ -187,14 +188,14 @@
                 <?php 
                     echo form_button(array(
                         "class" => "btn btn-secondary",
-                        "content" => "Fechar",
+                        "content" => "<i class='fa fa-times'></i> Cancelar",
                         "type" => "button",
                         "data-dismiss" => "modal"
                     ));
 
                     echo form_button(array(
                         "class" => "btn btn-primary",
-                        "content" => "Salvar",
+                        "content" => "<i class='fa fa-check'></i> Salvar",
                         "type" => "submit"
                     ));
                 ?>
