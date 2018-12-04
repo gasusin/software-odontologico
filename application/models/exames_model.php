@@ -24,8 +24,8 @@ class Exames_model extends CI_Model {
         );
     }
 
-    public function deleteById($id){
-        $this->db->delete('exame', array('id' => $id));
+    public function deleteById($id_paciente, $id_exame){
+        $this->db->delete('exame', array('id' => $id_exame, 'id_paciente' => $id_paciente));
     }
 
     public function getExames($id){

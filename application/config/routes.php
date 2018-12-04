@@ -44,6 +44,7 @@ $route['pacientes/(:num)'] = 'pacientes/detalhes/$1';
 $route['pacientes/edit/(:num)'] = 'pacientes/edit/$1';
 $route['exames/(:num)/(:num)'] = 'exames/detalhes_exame/$1/$2';
 $route['exames/edit/(:num)/(:num)'] = 'exames/edit_exame/$1/$2';
+$route['exames/delete/(:num)/(:num)'] = 'exames/delete_exame/$1/$2';
 
 
 /* End of file routes.php */

@@ -64,6 +64,7 @@
                             <td>
                                 <?= anchor("exames/{$pacientes['id']}/{$exame["id"]}", " ", array("class" => "fa fa-search")) ?>
                                 <?= anchor("exames/edit/{$pacientes['id']}/{$exame['id']}", " ", array("class" => "fa fa-edit")) ?>
+                                <?= anchor("exames/delete/{$pacientes['id']}/{$exame['id']}", " ", array("class" => "fa fa-times")) ?>
                             </td>
                         </tr>
                     <?php endforeach?>
