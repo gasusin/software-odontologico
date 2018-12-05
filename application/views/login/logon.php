@@ -23,7 +23,7 @@
         <h1>Login</h1>
         <?php
         
-            echo form_open("login/autenticar");
+            echo form_open("usuarios/autenticar");
 
             echo form_label("Nome", "nome");
             echo form_input(array(

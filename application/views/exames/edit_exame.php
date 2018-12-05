@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="<?= base_url("css/bootstrap.css") ?>">
 </head>
 <body>
+<?php
+require_once(dirname(dirname(dirname(__FILE__))).'\controllers\valida_usuario.php');
+?>
+
     <div class="container">
 
         <h1> Edição de Exame</h1>

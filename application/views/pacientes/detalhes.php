@@ -12,6 +12,10 @@
     <script src="<?= base_url('js/bootstrap.js'); ?>"></script>
 </head>
 <body>
+<?php
+require_once(dirname(dirname(dirname(__FILE__))).'\controllers\valida_usuario.php');
+?>
+
     <div class="container">
         <div class="row">
             <h1> Paciente </h1>
@@ -42,97 +46,33 @@
                 </p>
             <?php endif ?>
             
-            <?php if($this->session->userdata("usuario_logado")) : ?>
+            <h1>Exames</h1>
 
-                <h1>Exames</h1>
+            <table class="table table-striped">
+                <tr>
+                    <th>#</th>
+                    <th>Descrição</th> 
+                    <th>Tipo</th>
+                    <th>Data Exame</th>
+                    <th>Ações</th>
+                </tr>
+                <?php foreach($exames as $exame) :?>
 
-                <table class="table table-striped">
-                    <tr>
-                        <th>#</th>
-                        <th>Descrição</th> 
-                        <th>Tipo</th>
-                        <th>Data Exame</th>
-                        <th>Ações</th>
+                    <tr>    
+                        <td><?= $exame["id"]?></td>
+                        <td><?= $exame["descricao"]?></td>
+                        <td><?= $exame["tipo"]?></td>
+                        <td><?= $exame["data_exame"]?></td>
+                        <td>
+                            <?= anchor("exames/{$pacientes['id']}/{$pacientes['nome']}/{$exame["id"]}", " ", array("class" => "fa fa-search")) ?>
+                            <?= anchor("exames/edit/{$pacientes['id']}/{$exame['id']}", " ", array("class" => "fa fa-edit")) ?>
+                            <?= anchor("exames/delete/{$pacientes['id']}/{$exame['id']}", " ", array("class" => "fa fa-times")) ?>
+                        </td>
                     </tr>
-                    <?php foreach($exames as $exame) :?>
-
-                        <tr>    
-                            <td><?= $exame["id"]?></td>
-                            <td><?= $exame["descricao"]?></td>
-                            <td><?= $exame["tipo"]?></td>
-                            <td><?= $exame["data_exame"]?></td>
-                            <td>
-                                <?= anchor("exames/{$pacientes['id']}/{$pacientes['nome']}/{$exame["id"]}", " ", array("class" => "fa fa-search")) ?>
-                                <?= anchor("exames/edit/{$pacientes['id']}/{$exame['id']}", " ", array("class" => "fa fa-edit")) ?>
-                                <?= anchor("exames/delete/{$pacientes['id']}/{$exame['id']}", " ", array("class" => "fa fa-times")) ?>
-                            </td>
-                        </tr>
-                    <?php endforeach?>
-                </table>
+                <?php endforeach?>
+            </table>
 
 
-            <?php else : ?>
-
-                <h1>Login</h1>
-                <?php
-                
-                    echo form_open("login/autenticar");
-
-                    echo form_label("Nome", "nome");
-                    echo form_input(array(
-                        "id" => "nome",
-                        "name" => "nome",
-                        "class" => "form-control",
-                        "maxlength" => "255"
-                    ));
-
-                    echo form_label("Senha", "senha");
-                    echo form_password(array(
-                        "id" => "senha",
-                        "name" => "senha",
-                        "class" => "form-control",
-                        "maxlength" => "255"
-                    ));
-
-                    echo form_button(array(
-                        "class" => "btn btn-primary",
-                        "content" => "Login",
-                        "type" => "submit"
-                    ));
-
-                    echo form_close();
-                ?>
-
-                <h1>Cadastro de Usuário</h1>
-                <?php 
-                    echo form_open("usuarios/novo");
-
-                    echo form_label("Nome", "nome");
-                    echo form_input(array(
-                        "id" => "nome",
-                        "name" => "nome",
-                        "class" => "form-control",
-                        "maxlength" => "255"
-                    ));
-
-                    echo form_label("Senha", "senha");
-                    echo form_password(array(
-                        "id" => "senha",
-                        "name" => "senha",
-                        "class" => "form-control",
-                        "maxlength" => "255"
-                    ));
-
-                    echo form_button(array(
-                        "class" => "btn btn-primary",
-                        "content" => "Salvar",
-                        "type" => "submit"
-                    ));
-
-                    echo form_close();
-                ?>
-
-            <?php endif ?>
         </div>
         <!-- Tabela de exames -->
 

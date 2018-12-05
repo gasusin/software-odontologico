@@ -11,6 +11,10 @@
     <script src="<?= base_url("js/jquery.maskedinput.min.js");?>"></script><!-- Máscara -->
 </head>
 <body>
+<?php
+require_once(dirname(dirname(dirname(__FILE__))).'\controllers\valida_usuario.php');
+?>
+
     <div class="container">
 
         <h1> Edição de Paciente</h1>
